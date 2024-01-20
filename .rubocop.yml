@@ -1,0 +1,13 @@
+require:
+  - rubocop
+
+AllCops:
+  TargetRubyVersion: 3.1.2
+  NewCops: enable
+  inherit_mode: merge
+  SuggestExtensions: false
+  Exclude:
+    - 'bin/bundle'
+
+Style/Documentation:
+  Enabled: false
