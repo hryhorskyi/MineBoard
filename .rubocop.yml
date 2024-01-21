@@ -8,6 +8,7 @@ AllCops:
   SuggestExtensions: false
   Exclude:
     - 'bin/bundle'
+    - 'spec/**/*'
 
 Style/Documentation:
   Enabled: false

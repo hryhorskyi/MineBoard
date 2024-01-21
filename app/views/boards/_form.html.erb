@@ -11,13 +11,13 @@
   <% end %>
 
   <div class="mb-3">
-    <%= form.label :name, class: 'form-label' %>
+    <%= form.label :board_name, class: 'form-label' %>
     <%= form.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :owners_email, class: 'form-label' %>
-    <%= form.text_field :owners_email, class: 'form-control' %>
+    <%= form.label :email, class: 'form-label' %>
+    <%= form.text_field :owners_email, class: 'form-control', placeholder: 'mail@example.com' %>
   </div>
 
   <div class="mb-3">
@@ -31,11 +31,11 @@
   </div>
 
   <div class="mb-3">
-    <%= form.label :mines, class: 'form-label' %>
+    <%= form.label :mines_amount, class: 'form-label' %>
     <%= form.number_field :mines, class: 'form-control' %>
   </div>
 
   <div class="mb-3">
-    <%= form.submit 'Save Board', class: 'btn btn-primary' %>
+    <%= form.submit 'Generate Board', class: 'btn btn-primary' %>
   </div>
 <% end %>

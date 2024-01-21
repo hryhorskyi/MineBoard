@@ -12,6 +12,9 @@ class BoardsController < ApplicationController
 
   def index
     @boards = Board.all
+    @boards = @boards.paginate(page: params[:page], per_page: 10)
+
+    @boards = @boards.where('LOWER(name) LIKE ?', "%#{params[:search].downcase}%") if params[:search].present?
   end
 
   def create

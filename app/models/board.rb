@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Board < ApplicationRecord
-  validates :owners_email, presence: true
+  validates :owners_email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :width, presence: true, numericality: { greater_than: 0 }
   validates :height, presence: true, numericality: { greater_than: 0 }
   validates :mines, presence: true, numericality: { greater_than_or_equal_to: 0 }
