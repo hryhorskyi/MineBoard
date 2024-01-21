@@ -1,14 +1,32 @@
-<p style="color: green"><%= notice %></p>
+<h1 class="mb-4">List of Boards</h1>
 
-<h1>Boards</h1>
+<%= link_to "Back to home page", root_path, class: "btn btn-secondary mb-3" %>
 
 <div id="boards">
-  <% @boards.each do |board| %>
-    <%= render board %>
-    <p>
-      <%= link_to "Show this board", board %>
-    </p>
-  <% end %>
+  <table class="table table-hover table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @boards.each_with_index do |board, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= link_to board.name, board, class: "text-primary" %></td>
+          <td><%= board.owners_email %></td>
+          <td><%= board.created_at.strftime("%d %b, %Y %H:%M") %></td>
+          <td>
+            <%= link_to "Show", board, class: "btn btn-sm btn-primary" %> |
+            <%= link_to "Edit", edit_board_path(board), class: "btn btn-sm btn-warning" %> |
+            <%= link_to "Delete", board, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New board", new_board_path %>

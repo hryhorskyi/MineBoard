@@ -1,37 +1,28 @@
-<div id="<%= dom_id board %>">
-  <p>
-    <strong>Name:</strong>
-    <%= board.name %>
-  </p>
-
-  <p>
-    <strong>Owners email:</strong>
-    <%= board.owners_email %>
-  </p>
-
-  <p>
-    <strong>Width:</strong>
-    <%= board.width %>
-  </p>
-
-  <p>
-    <strong>Height:</strong>
-    <%= board.height %>
-  </p>
-
-  <p>
-    <strong>Mines:</strong>
-    <%= board.mines %>
-  </p>
-
-  <p>
-    <strong>Minesweeper board:</strong>
-    <%= board.minesweeper_board %>
-  </p>
-
-  <p>
-    <strong>Created at:</strong>
-    <%= board.created_at %>
-  </p>
-
+<div id="<%= dom_id board %>" class="card mb-3">
+  <div class="card-header">
+    <strong>Name:</strong> <%= board.name %>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><strong>Owners Email:</strong> <%= board.owners_email %></p>
+    <p class="card-text"><strong>Width:</strong> <%= board.width %></p>
+    <p class="card-text"><strong>Height:</strong> <%= board.height %></p>
+    <p class="card-text"><strong>Mines:</strong> <%= board.mines %></p>
+    <p class="card-text"><strong>Minesweeper Board:</strong></p>
+    <div class="minesweeper-board">
+      <% board.minesweeper_board.each do |row| %>
+        <div class="row no-gutters">
+          <% row.each do |cell| %>
+            <div class="col-auto p-0 cell">
+              <% if cell == 0 %>
+                <div class="bg-light border empty-cell"></div>
+              <% else %>
+                <%= image_tag('mine.png', alt: 'Bomb', class: 'bomb-image') %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <p class="card-text"><strong>Created at:</strong> <%= board.created_at %></p>
+  </div>
 </div>

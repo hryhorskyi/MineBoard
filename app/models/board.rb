@@ -9,6 +9,8 @@ class Board < ApplicationRecord
 
   before_create :generate_minesweeper_board
 
+  serialize :minesweeper_board, Array
+
   def generate_minesweeper_board
     generator = MinesweeperBoardGenerator.new(self)
     self.minesweeper_board = generator.generate_board

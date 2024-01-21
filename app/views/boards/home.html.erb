@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-8">
+    <h1>Boards</h1>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @boards.first(10).each do |board| %>
+          <tr>
+            <td><%= link_to board.name, board %></td>
+            <td><%= board.owners_email %></td>
+            <td><%= board.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to "View all generated boards", boards_path %>
+  </div>
+
+  <div class="col-md-4">
+    <div id="new-board">
+      <h2>New board</h2>
+      <%= render "form", board: @board %>
+    </div>
+  </div>
+</div>

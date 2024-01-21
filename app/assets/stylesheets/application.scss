@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+
+ .app-container {
+   margin: 24px;
+ }
+
+ .minesweeper-board {
+  margin: 0 auto;
+}
+
+.row.no-gutters {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.cell {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.empty-cell {
+  border: 1px solid #e0d98c;
+  width: 100%;
+  height: 100%;
+}
+
+.bomb-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}

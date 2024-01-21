@@ -3,12 +3,15 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: %i[show edit update destroy]
 
-  def index
+  def home
     @boards = Board.all
+    @board = Board.new
   end
 
-  def new
-    @board = Board.new
+  def show; end
+
+  def index
+    @boards = Board.all
   end
 
   def create
