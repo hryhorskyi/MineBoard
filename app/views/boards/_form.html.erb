@@ -1,42 +1,41 @@
-<%= form_with(model: board) do |form| %>
+<%= form_with(model: board, local: true, html: { class: 'needs-validation', novalidate: true }) do |form| %>
   <% if board.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
-
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h4>
       <ul>
-        <% board.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% board.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :owners_email, style: "display: block" %>
-    <%= form.text_field :owners_email %>
+  <div class="mb-3">
+    <%= form.label :owners_email, class: 'form-label' %>
+    <%= form.text_field :owners_email, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :width, style: "display: block" %>
-    <%= form.number_field :width %>
+  <div class="mb-3">
+    <%= form.label :width, class: 'form-label' %>
+    <%= form.number_field :width, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :height, style: "display: block" %>
-    <%= form.number_field :height %>
+  <div class="mb-3">
+    <%= form.label :height, class: 'form-label' %>
+    <%= form.number_field :height, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :mines, style: "display: block" %>
-    <%= form.number_field :mines %>
+  <div class="mb-3">
+    <%= form.label :mines, class: 'form-label' %>
+    <%= form.number_field :mines, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.submit 'Save Board', class: 'btn btn-primary' %>
   </div>
 <% end %>

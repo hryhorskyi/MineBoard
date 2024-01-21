@@ -23,6 +23,6 @@
         </div>
       <% end %>
     </div>
-    <p class="card-text"><strong>Created at:</strong> <%= board.created_at %></p>
+    <p class="card-text"><strong>Created at:</strong> <%= board.created_at.strftime("%d %b, %Y %H:%M") %></p>
   </div>
 </div>
